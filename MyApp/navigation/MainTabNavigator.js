@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import TutorialScreen from '../screens/TutorialScreen';
+import DeveloperScreen from '../screens/DeveloperScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -35,42 +35,42 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const TutorialStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Tutorial: TutorialScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+TutorialStack.navigationOptions = {
+  tabBarLabel: 'Tutorial',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-clipboard' : 'md-clipboard'} />
   ),
 };
 
-LinksStack.path = '';
+TutorialStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const DeveloperStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Developer: DeveloperScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+DeveloperStack.navigationOptions = {
+  tabBarLabel: 'Developers',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-woman' : 'md-woman'} />
   ),
 };
 
-SettingsStack.path = '';
+DeveloperStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  TutorialStack,
+  DeveloperStack,
 });
 
 tabNavigator.path = '';

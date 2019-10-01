@@ -22,8 +22,8 @@ export default function HomeScreen() {
           <Image
             source={
               __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
+                ? require('../assets/images/seaTurtle.jpg')
+                : require('../assets/images/seaTurtle.jpg')
             }
             style={styles.welcomeImage}
           />
@@ -32,12 +32,8 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Get started by opening</Text>
+          <Text style={styles.getStartedText}>Endangered?</Text>
 
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
 
           <Text style={styles.getStartedText}>
             Welcome! Here, you can find out if an animal is endangered or not.
@@ -47,7 +43,7 @@ export default function HomeScreen() {
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
+              Source of Database of Mammal Info
             </Text>
           </TouchableOpacity>
         </View>
@@ -55,15 +51,9 @@ export default function HomeScreen() {
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          To get started with searching for your animal's conservation status, head to the tutorial page!
         </Text>
 
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
       </View>
     </View>
   );
@@ -104,7 +94,7 @@ function handleLearnMorePress() {
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
+    'https://www.departments.bucknell.edu/biology/resources/msw3/'
   );
 }
 
