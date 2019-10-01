@@ -1,0 +1,51 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "expo": "^35.0.0",
+    "react": "^16.10.1",
+    "react-art": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-native": "^0.61.1",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-reanimated": "^1.3.0",
+    "react-native-screens": "^1.0.0-alpha.23",
+    "react-native-web": "^0.11.7",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.9.1",
+    "react-scripts": "3.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-native": "expo start",
+    "android": "expo android",
+    "ios": "expo ios",
+    "build:ios": "expo build:ios",
+    "build:android": "expo build:android"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-preset-expo": "^7.0.0"
+  }
+}
