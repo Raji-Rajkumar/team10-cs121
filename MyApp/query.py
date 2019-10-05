@@ -5,4 +5,8 @@
 # find conservation status
 # return conservation status
 
+import pandas as pd
 
+data = pd.read_csv("mammals.csv")
+
+data.head()
