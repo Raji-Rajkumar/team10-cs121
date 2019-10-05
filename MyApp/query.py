@@ -7,6 +7,10 @@
 
 import pandas as pd
 
-data = pd.read_csv("mammals.csv")
+data = pd.read_csv("species.csv")
 
-data.head()
+def findStatus(commonName):
+    # search for row with common name
+    # extract status
+    return data[data["Common Name"] == commonName]["Status"].values[0]
+
