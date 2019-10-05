@@ -4,14 +4,14 @@ import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
 export default function TutorialScreen() {
-  return (  
+  return (
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
-        contentContainerStyle={styles.contentContainer}> 
+        contentContainerStyle={styles.contentContainer}>
         <View style={styles.getStartedContainer}>
           <Text style={styles.getStartedText}>
-               Thank you for coming to our page! Type in the name of your animal, and we will give you some information about the animal (source linked from the home page). The way this works is through a query search of a database. Please enter the common name as known in the United States. We do not support any other format, including the scientific name. Happy searching! 
+               Thank you for coming to our page! Type in the name of your animal, and we will give you some information about the animal (source linked from the home page). The way this works is through a query search of a database. Please enter the common name as known in the United States. We do not support any other format, including the scientific name. Happy searching!
           </Text>
         </View>
       </ScrollView>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: '#004A0C',
   },
   contentContainer: {
     paddingTop: 30,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: 'rgba(252,183,140, 1)',
     lineHeight: 24,
     textAlign: 'center',
   },
