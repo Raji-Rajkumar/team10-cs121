@@ -12,5 +12,9 @@ data = pd.read_csv("species.csv")
 def findStatus(commonName):
     # search for row with common name
     # extract status
+    if commonName not in data["Common Name"].values:
+        return "not in the database"
     return data[data["Common Name"] == commonName]["Status"].values[0]
+
+
 
