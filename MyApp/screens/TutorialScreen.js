@@ -2,6 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import Inputs from './inputs.js'
 
 export default function TutorialScreen() {
   return (
@@ -14,6 +15,7 @@ export default function TutorialScreen() {
                Thank you for coming to our page! Type in the name of your animal, and we will give you some information about the animal (source linked from the home page). The way this works is through a query search of a database. Please enter the common name as known in the United States. We do not support any other format, including the scientific name. Happy searching!
           </Text>
         </View>
+        <Inputs />
       </ScrollView>
     </View>
   );

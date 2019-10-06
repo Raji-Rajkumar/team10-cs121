@@ -94,7 +94,7 @@ function handleLearnMorePress() {
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
-    'https://www.departments.bucknell.edu/biology/resources/msw3/'
+    'https://ecos.fws.gov/ecp/report/ad-hoc-creator?catalogId=species&reportId=species&columns=%2Fspecies@cn,sn,status,desc,listing_date&sort=%2Fspecies@cn%20asc;%2Fspecies@sn%20asc'
   );
 }
 
