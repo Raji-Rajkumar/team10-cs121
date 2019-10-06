@@ -6,27 +6,37 @@ import { ExpoLinksView } from '@expo/samples';
 
 class Inputs extends Component {
 	state = {
-		animal: ''
+		common: '',
+        scientific: ''
 	}
-	handleAnimal = (text) => {
-		this.setState({ animal: text })
+	handleCommon = (text) => {
+		this.setState({ common: text })
 	}
-    submit = (animal) => {
-        alert('you entered: ' + animal)
+    handleScientific = (text) => {
+        this.setState({ scientific: text })
+    }
+    submit = (common, scientific) => {
+        alert('common name: ' + common + '; scientific name: ' + scientific)
     }
 	render() {
 		return (
 			<View style = {styles.container}>
 			    <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
-                    placeholder = "   Animal"
+                    placeholder = "   Common Name"
                     placeholderTextColor = 'rgba(0,110,0,1)'
                     autoCapitalize = "none"
-                    onChangeText = {this.handleAnimal}/>
+                    onChangeText = {this.handleCommon}/>
+                <TextInput style = {styles.input}
+                    underlineColorAndroid = "transparent"
+                    placeholder = "   Scientific Name"
+                    placeholderTextColor = 'rgba(0,110,0,1)'
+                    autoCapitalize = "none"
+                    onChangeText = {this.handleScientific}/>
                 <TouchableOpacity
                     style = {styles.submitButton}
                     onPress = {
-                        () => this.submit(this.state.animal)
+                        () => this.submit(this.state.common, this.state.scientific)
                     }>
                     <Text style = {styles.submitButtonText}> Submit </Text>
                 </TouchableOpacity>
