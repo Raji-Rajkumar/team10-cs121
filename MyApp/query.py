@@ -7,14 +7,18 @@
 
 import pandas as pd
 
-data = pd.read_csv("species.csv")
+data = pd.read_csv('species.csv', encoding='utf-8')
 
-def findStatus(commonName):
+def findStatus(commonName, scientificName):
     # search for row with common name
     # extract status
-    if commonName not in data["Common Name"].values:
-        return "not in the database"
-    return data[data["Common Name"] == commonName]["Status"].values[0]
-
-
-
+    if commonName != "":
+        if commonName not in data["Common Name"].values:
+            return "The " + commonName + " is not in our database."
+        return "The " + commonName + " is classified as " + data[data["Common Name"] == commonName]["Status"].values[0]
+    elif scientificName != "":
+        if scientificName not in data["Scientific Name"].values:
+                return "The " + scientificName + " is not in our database."
+        return "The " + scientificName + " is classified as " + data[data["Scientific Name"] == scientificName]["Status"].values[0]
+    else:
+        return "Please enter a name!!"
