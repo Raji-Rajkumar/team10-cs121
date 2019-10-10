@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   getStartedText: {
+    fontFamily: 'Menlo',
     fontSize: 17,
     color: 'rgba(252,183,140, 1)',
     lineHeight: 24,

@@ -60,9 +60,11 @@ const styles = StyleSheet.create({
         height: 40
     },
     submitButtonText:{
+        fontFamily: 'Menlo',
         color: 'rgba(0,110,0,1)',
     },
     input:{
+        fontFamily: 'Menlo',
         margin: 15,
         height: 40,
         borderColor: "#FAB64F",

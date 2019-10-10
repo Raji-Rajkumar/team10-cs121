@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 
-import { MonoText } from '../components/StyledText';
+import { MenloText } from '../components/StyledText';
 
 export default function HomeScreen() {
   return (
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#004A0C',
   },
   developmentModeText: {
+    fontFamily: 'Menlo',
     marginBottom: 20,
     color: 'rgba(252,183,140, 1)',
     fontSize: 14,
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
+    fontFamily: 'Menlo',
     fontSize: 17,
     color: 'rgba(252,183,140, 1)',
     lineHeight: 24,
@@ -167,6 +169,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   tabBarInfoText: {
+    fontFamily: 'Menlo',
     fontSize: 17,
     color: 'rgba(252,183,140, 1)',
     textAlign: 'center',
@@ -182,6 +185,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   helpLinkText: {
+    fontFamily: 'Menlo',
     fontSize: 14,
     color: '#FCB582',
   },
