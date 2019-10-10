@@ -6,6 +6,17 @@
 # return conservation status
 
 import pandas as pd
+from flask import Flask, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+app.config.from_object(__name__)
+
+CORS(app)
+
+@app.route("/result", methods = ['GET'])
+def result():
+    return jsonify(findStatus("Abbott's booby", ""))
 
 data = pd.read_csv('species.csv', encoding='utf-8')
 
@@ -27,3 +38,6 @@ def findStatus(commonName, scientificName):
     else:
         # no name was submitted
         return "Please enter a name!!"
+
+if __name__ == '__main__':
+    app.run()

@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-nativ
 import * as WebBrowser from 'expo-web-browser';
 import { ScrollView } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import axios from 'axios';
 
 class Inputs extends Component {
 	state = {
@@ -16,7 +17,19 @@ class Inputs extends Component {
         this.setState({ scientific: text })
     }
     submit = (common, scientific) => {
-        alert('common name: ' + common + '; scientific name: ' + scientific)
+        axios.post('http://127.0.0.1:190006/Results', { common })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+        // componentDidMount()
+    }
+    componentDidMount() {
+        axios.get('http://127.0.0.1:5000/result')
+            .then(res => {
+                const status = res.data;
+                console.log(res.data);
+            })
     }
 	render() {
 		return (
