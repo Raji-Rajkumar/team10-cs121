@@ -21,10 +21,14 @@ def name():
 
 
 data = pd.read_csv('species.csv', encoding='utf-8')
+data["Common Name"] = data["Common Name"].str.lower()
+data["Scientific Name"] = data["Scientific Name"].str.lower()
 
 def findStatus(commonName, scientificName):
     # search for row with common name/scientific name depending on what they gave us
     # extract status
+    commonName = commonName.lower()
+    scientificName = scientificName.lower()
     if commonName != "":
         if commonName not in data["Common Name"].values:
             # if not in database tell them

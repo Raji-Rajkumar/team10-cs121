@@ -47,6 +47,16 @@ export default function HomeScreen() {
             </Text>
           </TouchableOpacity>
         </View>
+        <View style = {styles.welcomeContainer}>
+            <Image
+                source={
+                    __DEV__
+                    ? require('../assets/images/leopard.jpg')
+                    : require('../assets/images/leopard.jpg')
+                }
+                style = {styles.secondImage}
+            />
+        </View> 
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -124,6 +134,13 @@ const styles = StyleSheet.create({
     height: 80,
     resizeMode: 'contain',
     marginTop: 3,
+    marginLeft: -10,
+  },
+  secondImage: {
+    width: 100,
+    height: 80,
+    resizeMode: 'contain',
+    margintop: 3,
     marginLeft: -10,
   },
   getStartedContainer: {
