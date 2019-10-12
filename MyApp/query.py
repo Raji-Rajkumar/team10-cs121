@@ -14,9 +14,11 @@ app.config.from_object(__name__)
 
 CORS(app)
 
-@app.route("/result", methods = ['GET'])
-def result():
-    return jsonify(findStatus("Abbott's booby", ""))
+@app.route("/name", methods = ['GET'])
+def name():
+    common = request.args.get('common')
+    return "<h1>The status is: {} </h1>".format(common)
+
 
 data = pd.read_csv('species.csv', encoding='utf-8')
 

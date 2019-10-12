@@ -4,6 +4,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { ScrollView } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import axios from 'axios';
+import { getJSONRepos } from './exports.js';
 
 class Inputs extends Component {
 	state = {
@@ -15,14 +16,9 @@ class Inputs extends Component {
 	}
     handleScientific = (text) => {
         this.setState({ scientific: text })
-    }
+    } 
     submit = (common, scientific) => {
-        axios.post('http://127.0.0.1:190006/Results', { common })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-        // componentDidMount()
+        getJSONRepos(common)
     }
     componentDidMount() {
         axios.get('http://127.0.0.1:5000/result')
