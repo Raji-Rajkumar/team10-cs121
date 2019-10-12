@@ -32,14 +32,14 @@ class Inputs extends Component {
 			<View style = {styles.container}>
 			    <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
-                    placeholder = "   Common Name"
-                    placeholderTextColor = 'rgba(0,110,0,1)'
+                    placeholder = "  Common Name"
+                    placeholderTextColor = '#004A0C'
                     autoCapitalize = "none"
                     onChangeText = {this.handleCommon}/>
                 <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
-                    placeholder = "   Scientific Name"
-                    placeholderTextColor = 'rgba(0,110,0,1)'
+                    placeholder = "  Scientific Name"
+                    placeholderTextColor = '#004A0C'
                     autoCapitalize = "none"
                     onChangeText = {this.handleScientific}/>
                 <TouchableOpacity
@@ -63,21 +63,21 @@ const styles = StyleSheet.create({
         backgroundColor: "#004A0C"
     },
     submitButton:{
-        backgroundColor: "#FAB64F",
+        backgroundColor: 'rgba(252,183,140, 1)',
         padding: 10,
         margin: 15,
         height: 40
     },
     submitButtonText:{
         fontFamily: 'Menlo',
-        color: 'rgba(0,110,0,1)',
+        color: '#004A0C',
     },
     input:{
         fontFamily: 'Menlo',
         margin: 15,
         height: 40,
-        borderColor: "#FAB64F",
+        borderColor: 'rgba(252,183,140, 1)',
         borderWidth: 1,
-        backgroundColor: "#FAB64F",
+        backgroundColor: 'rgba(252,183,140, 1)',
     },
 });

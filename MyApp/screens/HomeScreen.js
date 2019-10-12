@@ -60,7 +60,7 @@ export default function HomeScreen() {
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
+        <Text style={styles.bottomText}>
           To get started with searching for your animal's conservation status, head to the tutorial page!
         </Text>
 
@@ -119,6 +119,12 @@ const styles = StyleSheet.create({
     color: 'rgba(252,183,140, 1)',
     fontSize: 14,
     lineHeight: 19,
+    textAlign: 'center',
+  },
+  bottomText: {
+    fontFamily: 'Menlo',
+    fontSize: 17,
+    color: '#004A0C',
     textAlign: 'center',
   },
   contentContainer: {
