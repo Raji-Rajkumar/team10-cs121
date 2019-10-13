@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         paddingTop: 15,
-        backgroundColor: "#004A0C"
+        backgroundColor: "#003308"
     },
     submitButton:{
         backgroundColor: 'rgba(252,183,140, 1)',
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     submitButtonText:{
         fontFamily: 'Menlo',
-        color: '#004A0C',
+        color: '#003308',
     },
     input:{
         fontFamily: 'Menlo',

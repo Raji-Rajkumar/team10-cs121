@@ -110,7 +110,7 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#004A0C',
+    backgroundColor: '#003308',
   },
   developmentModeText: {
     fontFamily: 'Menlo',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   bottomText: {
     fontFamily: 'Menlo',
     fontSize: 17,
-    color: '#004A0C',
+    color: '#003308',
     textAlign: 'center',
   },
   contentContainer: {
@@ -135,18 +135,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    width: 150,
+    height: 100,
     resizeMode: 'contain',
-    marginTop: 3,
+    marginTop: 2,
     marginLeft: -10,
+    borderRadius: 50,
   },
   secondImage: {
-    width: 100,
-    height: 80,
+    width: 150,
+    height: 100,
     resizeMode: 'contain',
-    margintop: 3,
+    marginTop: 2,
     marginLeft: -10,
+    borderRadius: 50,
   },
   getStartedContainer: {
     alignItems: 'center',
