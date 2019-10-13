@@ -4,12 +4,13 @@ import * as WebBrowser from 'expo-web-browser';
 import { ScrollView } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import axios from 'axios';
-import { getJSONRepos } from './exports.js';
 
 class Inputs extends Component {
 	state = {
 		common: '',
-        scientific: ''
+        scientific: '',
+        isReady: false,
+        stat: ''
 	}
 	handleCommon = (text) => {
 		this.setState({ common: text })
@@ -21,10 +22,21 @@ class Inputs extends Component {
         axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
             .then(res => {
                 const status = res.data;
-                alert(status.status);
+                this.setState({ stat: status.status });
+                this.setState({ isReady: true });
             })
     }
 	render() {
+        // set the message
+        
+        let message;
+        if(this.state.isReady) {
+            message = this.state.stat;
+        }
+        else {
+            message = "";
+        }
+        
 		return (
 			<View style = {styles.container}>
 			    <TextInput style = {styles.input}
@@ -46,6 +58,7 @@ class Inputs extends Component {
                     }>
                     <Text style = {styles.submitButtonText}> Submit </Text>
                 </TouchableOpacity>
+                <View><Text style = {styles.getStartedText}> {message} </Text></View>
             </View>
 		)
 	}
@@ -77,4 +90,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: 'rgba(252,183,140, 1)',
     },
+    getStartedText: {
+        fontFamily: 'Menlo',
+        fontSize: 17,
+        color: 'rgba(252,183,140, 1)',
+        lineHeight: 24,
+        textAlign: 'center',
+    }
 });
