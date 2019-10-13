@@ -8,6 +8,7 @@
 import pandas as pd
 from flask import Flask, jsonify
 from flask_cors import CORS
+from flask import request
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -17,7 +18,9 @@ CORS(app)
 @app.route("/name", methods = ['GET'])
 def name():
     common = request.args.get('common')
-    return "<h1>The status is: {} </h1>".format(common)
+    scientific = request.args.get('scientific')
+    status = findStatus(common, scientific)
+    return jsonify({ "status": status})
 
 
 data = pd.read_csv('species.csv', encoding='utf-8')

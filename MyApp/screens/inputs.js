@@ -18,13 +18,10 @@ class Inputs extends Component {
         this.setState({ scientific: text })
     } 
     submit = (common, scientific) => {
-        getJSONRepos(common)
-    }
-    componentDidMount() {
-        axios.get('http://127.0.0.1:5000/result')
+        axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
             .then(res => {
                 const status = res.data;
-                console.log(res.data);
+                alert(status.status);
             })
     }
 	render() {
