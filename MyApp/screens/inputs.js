@@ -19,18 +19,20 @@ class Inputs extends Component {
         this.setState({ scientific: text })
     } 
     submit = (common, scientific) => {
+        // get what the user entered from the URL
         axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
             .then(res => {
                 const status = res.data;
+                // save it so we can grab it later
                 this.setState({ stat: status.status });
                 this.setState({ isReady: true });
             })
     }
 	render() {
         // set the message
-        
         let message;
         if(this.state.isReady) {
+            // only record a message if we have one
             message = this.state.stat;
         }
         else {
