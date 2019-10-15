@@ -42,13 +42,13 @@ class Inputs extends Component {
 			    <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
                     placeholder = "  Common Name"
-                    placeholderTextColor = '#004A0C'
+                    placeholderTextColor = '#003308'
                     autoCapitalize = "none"
                     onChangeText = {this.handleCommon}/>
                 <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
                     placeholder = "  Scientific Name"
-                    placeholderTextColor = '#004A0C'
+                    placeholderTextColor = '#003308'
                     autoCapitalize = "none"
                     onChangeText = {this.handleScientific}/>
                 <TouchableOpacity

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontFamily: 'Menlo',
     fontSize: 17,
-    color: 'rgba(252,183,140, 1)',
+    color: 'rgba(252, 183, 140, 1)',
     lineHeight: 24,
     textAlign: 'center',
   },
