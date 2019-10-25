@@ -4,6 +4,8 @@ import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Inputs from './inputs.js'
 
+import { MenloText } from '../components/StyledText';
+
 export default function TutorialScreen() {
   return (
     <View style={styles.container}>
@@ -23,12 +25,14 @@ export default function TutorialScreen() {
 
 TutorialScreen.navigationOptions = {
   title: 'Tutorial',
+  headerTransparent: true,
+  headerTitleStyle: {fontFamily: 'Menlo', color: 'rgba(252, 183, 140, 1)'},
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 30,
     backgroundColor: '#003308',
   },
   contentContainer: {

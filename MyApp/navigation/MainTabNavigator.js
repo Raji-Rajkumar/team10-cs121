@@ -7,8 +7,10 @@ import HomeScreen from '../screens/HomeScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import DeveloperScreen from '../screens/DeveloperScreen';
 
+import { MenloText } from '../components/StyledText';
+
 const config = Platform.select({
-  web: { headerMode: 'screen' },
+  web: { headerMode: 'screen'},
   default: {},
 });
 
@@ -21,6 +23,16 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  tabBarOptions: {
+  labelStyle: {
+    fontSize: 12,
+    color: '#003308',
+    fontFamily: 'Menlo',
+  },
+  style: {
+    backgroundColor: 'rgba(252, 183, 140, 1)',
+  },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -44,6 +56,16 @@ const TutorialStack = createStackNavigator(
 
 TutorialStack.navigationOptions = {
   tabBarLabel: 'Tutorial',
+  tabBarOptions: {
+  labelStyle: {
+    fontSize: 12,
+    color: '#003308',
+    fontFamily: 'Menlo',
+  },
+  style: {
+    backgroundColor: 'rgba(252, 183, 140, 1)',
+  },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-clipboard' : 'md-clipboard'} />
   ),
@@ -60,6 +82,16 @@ const DeveloperStack = createStackNavigator(
 
 DeveloperStack.navigationOptions = {
   tabBarLabel: 'Developers',
+  tabBarOptions: {
+  labelStyle: {
+    fontSize: 12,
+    color: '#003308',
+    fontFamily: 'Menlo',
+  },
+  style: {
+    backgroundColor: 'rgba(252, 183, 140, 1)',
+  },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-woman' : 'md-woman'} />
   ),
