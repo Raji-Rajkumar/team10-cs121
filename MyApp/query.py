@@ -24,18 +24,24 @@ def name():
 
 
 data = pd.read_csv('species.csv', encoding='utf-8')
+# make all letters lowercase to make it easier to search
 data["Common Name"] = data["Common Name"].str.lower()
 data["Scientific Name"] = data["Scientific Name"].str.lower()
 
 def findStatus(commonName, scientificName):
     # search for row with common name/scientific name depending on what they gave us
-    # extract status
+    # make all letters lowercase to make it easier to search
     commonName = commonName.lower()
     scientificName = scientificName.lower()
     if commonName != "":
         if commonName not in data["Common Name"].values:
-            # if not in database tell them
-            return "The " + commonName + " is not in our database."
+            # find similar entries in the dataframe containing the inputted commonName
+            possibilities = data.loc[data["Common Name"].str.contains(commonName), ["Common Name"]]
+            # convert those into a string list of possible entries in the dataframe
+            listP = possibilities["Common Name"].values.tolist()
+            strP = ", ".join(listP)
+            # Let user know that the submitted entry is not in the database and offer alternatives
+            return "The " + commonName + " is not in our database. Did you mean " + strP + "?"
         # otherwise extract the status associated with that name
         return "The " + commonName + " is classified as " + data[data["Common Name"] == commonName]["Status"].values[0]
     elif scientificName != "":
