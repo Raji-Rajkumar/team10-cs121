@@ -3,7 +3,6 @@ import React from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Inputs from './inputs.js'
-import Predict from './predict_w_tfjs.js'
 
 import { MenloText } from '../components/StyledText';
 
@@ -25,7 +24,7 @@ export default function TutorialScreen() {
                 You can also upload an image of your animal below!
           </Text>
         </View>
-        <Predict />
+    
 
       </ScrollView>
     </View>
