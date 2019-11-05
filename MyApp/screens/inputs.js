@@ -17,7 +17,7 @@ class Inputs extends Component {
 	}
     handleScientific = (text) => {
         this.setState({ scientific: text })
-    } 
+    }
     submit = (common, scientific) => {
         // get what the user entered from the URL
         axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
@@ -38,7 +38,7 @@ class Inputs extends Component {
         else {
             message = "";
         }
-        
+
 		return (
 			<View style = {styles.container}>
 			    <TextInput style = {styles.input}
