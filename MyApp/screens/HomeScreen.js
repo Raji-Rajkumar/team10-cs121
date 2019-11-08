@@ -55,7 +55,7 @@ export default function HomeScreen() {
                 }
                 style = {styles.secondImage}
             />
-        </View> 
+        </View>
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -110,6 +110,8 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 30,
+    paddingBottom:30,
     backgroundColor: '#003308',
   },
   developmentModeText: {

@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import TutorialScreen from '../screens/TutorialScreen';
 import DeveloperScreen from '../screens/DeveloperScreen';
+import ResultsScreen from '../screens/ResultsScreen';
 
 import { MenloText } from '../components/StyledText';
 
@@ -50,6 +51,10 @@ HomeStack.path = '';
 const TutorialStack = createStackNavigator(
   {
     Tutorial: TutorialScreen,
+    Results: ResultsScreen,
+  },
+  {
+    initialRouteName: 'Tutorial',
   },
   config
 );
