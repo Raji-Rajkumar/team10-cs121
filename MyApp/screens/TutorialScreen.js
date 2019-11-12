@@ -3,11 +3,11 @@ import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Inputs from './inputs.js'
-import ImageUpload from './ImageUpload.js'
+import ImageUploadandClassify from './ImageUploadandClassify.js'
 
 
 import { MenloText } from '../components/StyledText';
-
+//TODO: Make the get getStartedText show up in separate lines!!
 export default function TutorialScreen() {
   return (
     <View style={styles.container}>
@@ -27,12 +27,10 @@ export default function TutorialScreen() {
         <Inputs />
 
         <View style={styles.getStartedContainer}>
-          <Text style={styles.getStartedText}>
-
-                You can also upload an image of your animal!
-
+          <Text style={styles.imageUploadText}>
+                You can also upload an image of your animal below!
           </Text>
-          <ImageUpload />
+          <ImageUploadandClassify />
         </View>
       </ScrollView>
     </View>
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    paddingBottom: 100,
+    paddingBottom: 10,
     backgroundColor: '#003308',
   },
   contentContainer: {
@@ -72,14 +70,21 @@ const styles = StyleSheet.create({
       color: '#003308',
   },
   getStartedContainer: {
-    padding: 10,
+    padding: 5,
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 25,
     backgroundColor: '#003308',
   },
   getStartedText: {
     fontFamily: 'Menlo',
     fontSize: 17,
+    color: 'rgba(252, 183, 140, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
+  imageUploadText: {
+    fontFamily: 'Menlo',
+    fontSize: 20,
     color: 'rgba(252, 183, 140, 1)',
     lineHeight: 24,
     textAlign: 'center',

@@ -3,7 +3,7 @@ import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import Inputs from './inputs.js'
-import ImageUpload from './ImageUpload.js'
+import ImageUploadandClassify from './ImageUploadandClassify.js'
 
 
 import { MenloText } from '../components/StyledText';
