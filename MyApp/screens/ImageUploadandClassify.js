@@ -78,8 +78,10 @@ class ImageUploadandClassify extends Component {
     // takes the image uri, width, and height as raw data and converts it to a 3D tensor and uses the model to classify
     classifyImage = async () => {
       try {
-        const imageAssetPath = Image.resolveAssetSource(this.state.image) // this function only works for mobile!
-        const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })
+        //const imageAssetPath = Image.resolveAssetSource(this.state.image) // this function only works for mobile!
+        console.log(this.state.image)
+        const source = {uri: this.state.image.uri}
+        const response = await fetch(source.uri, {}, { isBinary: true })
         const rawImageData = await response.arrayBuffer()
 
         // convert uri, width, height to usable 3d tensor
