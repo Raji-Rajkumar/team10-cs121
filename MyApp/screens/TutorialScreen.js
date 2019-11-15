@@ -19,7 +19,7 @@ export default function TutorialScreen() {
 
                Thank you for coming to our page!
                Type in the name of your animal, and we will give you some information about the animal (source linked from the home page).
-               The way this works is through a query search of a database. Please enter the common name as known in the United States. We do not support any other format, including the scientific name.
+               The way this works is through a query search of a database. Please enter the common name or scientific name as known in the United States. Or, upload an image and our image classifer (MobileNet) will classify the image as whatever animal it is! Please note that this is meant for animals only; please only upload appropriate images, and no images of humans. The classifier will report its top three predictions.
                Happy searching!
 
           </Text>
@@ -28,9 +28,10 @@ export default function TutorialScreen() {
 
         <View style={styles.getStartedContainer}>
           <Text style={styles.imageUploadText}>
-                You can also upload an image of your animal below!
+                You can upload an image of your animal below!
           </Text>
           <ImageUploadandClassify />
+        // TODO: define isModelReady state here first and call in ImageUploadandClassify class
         </View>
       </ScrollView>
     </View>
