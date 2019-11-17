@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import TutorialScreen from '../screens/TutorialScreen';
+import TutorialScreenNew from '../screens/TutorialScreenNew';
 import DeveloperScreen from '../screens/DeveloperScreen';
 import ResultsScreen from '../screens/ResultsScreen';
 
@@ -50,7 +50,7 @@ HomeStack.path = '';
 
 const TutorialStack = createStackNavigator(
   {
-    Tutorial: TutorialScreen,
+    Tutorial: TutorialScreenNew,
     Results: ResultsScreen,
   },
   {

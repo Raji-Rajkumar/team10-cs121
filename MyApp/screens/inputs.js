@@ -41,7 +41,7 @@ class Inputs extends Component {
         // create two screens, one for uploading, other for results
         // conditional return statement on whether we have results
 		return (
-			<View style = {styles.container}>
+			<View style = {styles.inputContainer}>
 			    <TextInput style = {styles.input}
                     underlineColorAndroid = "transparent"
                     placeholder = "  Common Name"
@@ -55,11 +55,11 @@ class Inputs extends Component {
                     autoCapitalize = "none"
                     onChangeText = {this.handleScientific}/>
                 <TouchableOpacity
-                    style = {styles.submitButton}
+                    style = {styles.inputButton}
                     onPress = {
                         () => this.submit(this.state.common, this.state.scientific)
                     }>
-                    <Text style = {styles.submitButtonText}> Submit </Text>
+                    <Text style = {styles.inputButtonText}> Submit </Text>
                 </TouchableOpacity>
                 <View><Text style = {styles.getStartedText}> {message} </Text></View>
             </View>
@@ -70,18 +70,18 @@ class Inputs extends Component {
 export default Inputs
 
 const styles = StyleSheet.create({
-    container:{
+    inputContainer:{
         flex: 1,
         paddingTop: 15,
         backgroundColor: "#003308"
     },
-    submitButton:{
+    inputButton:{
         backgroundColor: 'rgba(252,183,140, 1)',
         padding: 10,
         margin: 15,
         height: 40
     },
-    submitButtonText:{
+    inputButtonText:{
         fontFamily: 'Menlo',
         color: '#003308',
     },
