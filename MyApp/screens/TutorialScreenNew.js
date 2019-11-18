@@ -284,7 +284,7 @@ export default class TutorialScreenNew extends Component {
           </View>
           <View><Text style = {styles.getStartedText}> {message} </Text></View>
             <TouchableOpacity
-                style = {styles.inputButton}
+                style = {styles.reclassifyButton}
                 onPress = {
                     () => this.handleRender()
                 }>
@@ -406,6 +406,17 @@ const styles = StyleSheet.create({
   inputButtonText:{
     fontFamily: 'Menlo',
     color: '#003308',
+  },
+  reclassifyButton:{
+    backgroundColor: 'rgba(252, 183, 140, 1)',
+    padding: 10,
+    marginLeft: '35%',
+    marginRight: '35%',
+    marginTop: 15,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlignVertical: 'center',
   },
   input:{
     fontFamily: 'Menlo',
