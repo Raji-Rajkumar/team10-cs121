@@ -273,9 +273,6 @@ class TutorialScreenNew extends Component {
           </View>
         )} 
         
-        
-        
-
       </ScrollView>
      
     );  
