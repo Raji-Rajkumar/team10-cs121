@@ -131,7 +131,7 @@ class TutorialScreenNew extends Component {
   // puts the prediction in a nice pretty form to list and show users
   renderPrediction = prediction => {
     return (
-      <Text key={prediction.className} style={styles.getStartedText}>
+      <Text key={prediction.className} style={styles.predictionText}>
         {prediction.className}
       </Text>
     )
@@ -327,6 +327,14 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontFamily: 'Menlo',
     fontSize: 17,
+    color: 'rgba(252, 183, 140, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
+  predictionText: {
+    fontFamily: 'Menlo',
+    fontSize: 17,
+    fontWeight: 'bold',
     color: 'rgba(252, 183, 140, 1)',
     lineHeight: 24,
     textAlign: 'center',

@@ -40,8 +40,13 @@ def findStatus(commonName, scientificName):
             # convert those into a string list of possible entries in the dataframe
             listP = possibilities["Common Name"].values.tolist()
             strP = ", ".join(listP)
+            out = ""
+            if len(listP) == 0:
+                out = "The " + commonName + " is not in our database."
+            else:
+                out = "The " + commonName + " is not in our database. Did you mean " + strP + "?"
             # Let user know that the submitted entry is not in the database and offer alternatives
-            return "The " + commonName + " is not in our database. Did you mean " + strP + "?"
+            return out
         # otherwise extract the status associated with that name
         return "The " + commonName + " is classified as " + data[data["Common Name"] == commonName]["Status"].values[0]
     elif scientificName != "":
