@@ -19,6 +19,8 @@ CORS(app)
 def name():
     common = request.args.get('common')
     scientific = request.args.get('scientific')
+    print("common: ", common)
+    print("sci: ", scientific)
     status = findStatus(common, scientific)
     return jsonify({ "status": status})
 
@@ -29,11 +31,13 @@ data["Common Name"] = data["Common Name"].str.lower()
 data["Scientific Name"] = data["Scientific Name"].str.lower()
 
 def findStatus(commonName, scientificName):
+    print("cN: ", commonName)
+    print("sN: ", scientificName)
     # search for row with common name/scientific name depending on what they gave us
     # make all letters lowercase to make it easier to search
     commonName = commonName.lower()
     scientificName = scientificName.lower()
-    if commonName != "":
+    if commonName != 'null':
         if commonName not in data["Common Name"].values:
             # find similar entries in the dataframe containing the inputted commonName
             possibilities = data.loc[data["Common Name"].str.contains(commonName), ["Common Name"]]
@@ -49,7 +53,8 @@ def findStatus(commonName, scientificName):
             return out
         # otherwise extract the status associated with that name
         return "The " + commonName + " is classified as " + data[data["Common Name"] == commonName]["Status"].values[0]
-    elif scientificName != "":
+    elif scientificName != 'null':
+        print("sN2", scientificName)
         if scientificName not in data["Scientific Name"].values:
                 # if not in database tell them
                 return "The " + scientificName + " is not in our database."

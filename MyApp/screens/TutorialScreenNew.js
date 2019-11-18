@@ -149,6 +149,8 @@ export default class TutorialScreenNew extends Component {
   } 
   submit = (common, scientific) => {
     // get what the user entered from the URL
+    console.log("common: " + common + " scientific: " + scientific);
+
     axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
       .then(res => {
         const status = res.data;
