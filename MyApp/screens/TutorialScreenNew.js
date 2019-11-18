@@ -22,7 +22,8 @@ import { ExpoLinksView } from '@expo/samples';
 import { MenloText } from '../components/StyledText';
 import axios from 'axios';
 
-class TutorialScreenNew extends Component {
+
+export default class TutorialScreenNew extends Component {
 
   state = {
     isModelReady: false,
@@ -32,8 +33,9 @@ class TutorialScreenNew extends Component {
     common: null,
     scientific: null,
     stat: null,
-    isTfReady: false
+    isTfReady: false,
   }
+
   // FROM IMAGE UPLOAD AND CLASSIFY CLASS
 
   async componentDidMount() {
@@ -155,6 +157,16 @@ class TutorialScreenNew extends Component {
         this.setState({ isStatusReady: true });
       })
   }
+  handleRender = () => {
+    // handle onPress of the reclassify button
+    this.setState({ predictions: null });
+    this.setState({ isStatusReady: false });
+    this.setState({ image: null });
+    this.setState({ common: null });
+    this.setState({ scientific: null });
+    this.setState({ stat: null });
+    this.setState({ isTfReady: false });
+  }
 
   render() {
       // by default, have the tutorial text and the upload image box
@@ -169,7 +181,6 @@ class TutorialScreenNew extends Component {
         message = "";
     }
     return(
-      
       <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
@@ -270,16 +281,22 @@ class TutorialScreenNew extends Component {
             
           </View>
           <View><Text style = {styles.getStartedText}> {message} </Text></View>
+            <TouchableOpacity
+                style = {styles.inputButton}
+                onPress = {
+                    () => this.handleRender()
+                }>
+                <Text style = {styles.inputButtonText}> Upload Another Image </Text>
+            </TouchableOpacity>
           </View>
         )} 
         
       </ScrollView>
-     
-    );  
+    );
   }
 }
 
-export default TutorialScreenNew;
+// export default TutorialScreenNew;
 
 TutorialScreenNew.navigationOptions = {
   title: 'Tutorial',

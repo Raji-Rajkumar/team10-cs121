@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component} from 'react';
 import {
   Image,
   Platform,
@@ -12,7 +12,8 @@ import {
 
 import { MenloText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default class HomeScreen extends Component{
+  render() {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -66,6 +67,7 @@ export default function HomeScreen() {
       </View>
     </View>
   );
+ }
 }
 
 HomeScreen.navigationOptions = {
