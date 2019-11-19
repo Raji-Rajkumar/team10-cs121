@@ -51,10 +51,6 @@ HomeStack.path = '';
 const TutorialStack = createStackNavigator(
   {
     Tutorial: TutorialScreenNew,
-    Results: ResultsScreen,
-  },
-  {
-    initialRouteName: 'Tutorial',
   },
   config
 );
@@ -72,7 +68,13 @@ TutorialStack.navigationOptions = {
   },
   },
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-clipboard' : 'md-clipboard'} />
+    <TabBarIcon 
+      focused={focused} 
+      name={
+        Platform.OS === 'ios' 
+          ? 'ios-clipboard' : 'md-clipboard'
+      } 
+    />
   ),
 };
 

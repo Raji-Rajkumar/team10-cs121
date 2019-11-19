@@ -1,3 +1,5 @@
+
+import * as WebBrowser from 'expo-web-browser';
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -14,13 +16,14 @@ import * as tf from '@tensorflow/tfjs'
 import {fetch} from '@tensorflow/tfjs-react-native'
 import * as mobilenet from '@tensorflow-models/mobilenet'
 import * as jpeg from 'jpeg-js'
-import * as WebBrowser from 'expo-web-browser';
+
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 import * as Permissions from 'expo-permissions'
 import { ExpoLinksView } from '@expo/samples';
 import { MenloText } from '../components/StyledText';
 import axios from 'axios';
+
 
 
 export default class TutorialScreenNew extends Component {
@@ -183,6 +186,7 @@ export default class TutorialScreenNew extends Component {
         message = "";
     }
     return(
+      <View style={{flex:1}}>
       <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
@@ -195,6 +199,7 @@ export default class TutorialScreenNew extends Component {
                 Type in the name of your animal, and we will give you some information about the animal (source linked from the home page).
                 The way this works is through a query search of a database. Please enter the common name or scientific name as known in the United States. Or, upload an image and our image classifer (MobileNet) will classify the image as whatever animal it is! Please note that this is meant for animals only; please only upload appropriate images, and no images of humans. The classifier will report its top three predictions.
                 Happy searching!
+        
 
               </Text>
             </View>
@@ -294,8 +299,10 @@ export default class TutorialScreenNew extends Component {
         )} 
         
       </ScrollView>
+      </View>
     );
   }
+  
 }
 
 // export default TutorialScreenNew;
@@ -307,6 +314,8 @@ TutorialScreenNew.navigationOptions = {
     },
   headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
 };
+
+
 
 const styles = StyleSheet.create({
   container: {

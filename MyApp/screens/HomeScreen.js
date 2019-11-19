@@ -68,11 +68,14 @@ export default class HomeScreen extends Component{
     </View>
   );
  }
+
 }
 
 HomeScreen.navigationOptions = {
   header: null,
 };
+
+
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
