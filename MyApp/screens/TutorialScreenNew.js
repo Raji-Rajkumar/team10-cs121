@@ -163,7 +163,7 @@ export default class TutorialScreenNew extends Component {
       })
   }
   handleRender = () => {
-    // handle onPress of the reclassify button
+    // handle onPress of the reclassify button by resetting initial states
     this.setState({ predictions: null });
     this.setState({ isStatusReady: false });
     this.setState({ image: null });
