@@ -24,6 +24,8 @@ import { ExpoLinksView } from '@expo/samples';
 import { MenloText } from '../components/StyledText';
 import axios from 'axios';
 
+//const model_url = '../vgg19_model/model.json';
+
 
 
 export default class TutorialScreenNew extends Component {
