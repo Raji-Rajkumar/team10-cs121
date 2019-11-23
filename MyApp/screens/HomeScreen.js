@@ -19,6 +19,7 @@ export default class HomeScreen extends Component{
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
+        <View style = {styles.rowContainer}>
         <View style={styles.welcomeContainer}>
           <Image
             source={
@@ -29,7 +30,27 @@ export default class HomeScreen extends Component{
             style={styles.welcomeImage}
           />
         </View>
-
+        <View style = {styles.welcomeContainer}>
+            <Image
+                source={
+                    __DEV__
+                    ? require('../assets/images/seaTurtle.jpg')
+                    : require('../assets/images/seaTurtle.jpg')
+                }
+                style = {styles.welcomeImage}
+            />
+        </View>
+        <View style = {styles.welcomeContainer}>
+            <Image
+                source={
+                    __DEV__
+                    ? require('../assets/images/polarBears.jpg')
+                    : require('../assets/images/polarBears.jpg')
+                }
+                style = {styles.welcomeImage}
+            />
+        </View>
+        </View>
         <View style={styles.getStartedContainer}>
 
           <Text style={styles.getStartedText}>Endangered?</Text>
@@ -47,6 +68,17 @@ export default class HomeScreen extends Component{
             </Text>
           </TouchableOpacity>
         </View>
+        <View style = {styles.rowContainer}>
+        <View style = {styles.welcomeContainer}>
+            <Image
+                source={
+                    __DEV__
+                    ? require('../assets/images/giantPanda.jpg')
+                    : require('../assets/images/giantPanda.jpg')
+                }
+                style = {styles.welcomeImage}
+            />
+        </View>
         <View style = {styles.welcomeContainer}>
             <Image
                 source={
@@ -54,8 +86,20 @@ export default class HomeScreen extends Component{
                     ? require('../assets/images/leopard.jpg')
                     : require('../assets/images/leopard.jpg')
                 }
-                style = {styles.secondImage}
+                style = {styles.welcomeImage}
             />
+        </View>
+
+        <View style = {styles.welcomeContainer}>
+            <Image
+                source={
+                    __DEV__
+                    ? require('../assets/images/elephant.jpg')
+                    : require('../assets/images/elephant.jpg')
+                }
+                style = {styles.welcomeImage}
+            />
+        </View>
         </View>
       </ScrollView>
 
@@ -146,18 +190,11 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'contain',
     marginTop: 2,
-    marginLeft: -10,
+    marginLeft: 20,
+    marginRight: 20,
     borderRadius: 50,
   },
-  secondImage: {
-    width: 150,
-    height: 100,
-    resizeMode: 'contain',
-    marginTop: 2,
-    marginLeft: -10,
-    borderRadius: 50,
-  },
-  getStartedContainer: {
+    getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
   },
@@ -220,4 +257,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FCB582',
   },
+  rowContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+    marginBottom: 20,
+    flex: 1,
+    flexDirection: 'row',
+    
+  }
 });
