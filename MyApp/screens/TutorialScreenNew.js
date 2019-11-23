@@ -86,19 +86,15 @@ export default class TutorialScreenNew extends Component {
     this.getPermissionAsync()
 
   }
-
+    
   componentDidUpdate(prevProps, prevState) {
     if (this.state.predictions != prevState.prediction && this.state.isStatusReady == prevState.isStatusReady && this.state.isPhase2Hit == false) {
       console.log("hi");
       this.props.navigation.setParams({title: 'Enter Name'});
       this.state.isPhase2Hit = true;
     }
-    // console.log("phase 3 state: ", (this.state.isStatusReady), "Phase 3 prev state: ", (prevState.isStatusReady));
-    // if (this.state.predictions == prevState.predictions && this.state.isStatusReady != prevState.isStatusReady && this.state.isPhase3Hit == false) {
-    //   this.props.navigation.setParams({otherParam: 'Results!'});
-    //   this.state.isPhase3Hit = true;
-    // }
   }
+  
 
     // need to get permission to access the camera roll for ios
   getPermissionAsync = async () => {
@@ -247,9 +243,10 @@ export default class TutorialScreenNew extends Component {
           <View style={styles.container}>
             <View style={styles.getStartedContainer}>
               <Text style={styles.getStartedText}>
-                Thank you for coming to our page!
-                Type in the name of your animal, and we will give you some information about the animal (source linked from the home page).
-                The way this works is through a query search of a database. Please enter the common name or scientific name as known in the United States. Or, upload an image and our image classifer (MobileNet) will classify the image as whatever animal it is! Please note that this is meant for animals only; please only upload appropriate images, and no images of humans. The classifier will report its top three predictions.
+                Thank you for using "Endangered?".
+                Upload an image of an animal below to get started with your search! 
+                Our image classifer (MobileNet) will classify the image as whatever animal it is! 
+                Please note that this app is meant for animals only; upload appropriate images, and no images of humans. The classifier will report its top three predictions.
                 Happy searching!
         
 
@@ -286,8 +283,7 @@ export default class TutorialScreenNew extends Component {
             
             <View style={styles.getStartedContainer}>
               <Text style={styles.getStartedText}>
-                The top three predictions of your image are below. Enter one of those
-                predictions into the common name slot and hit submit! 
+                The top three predictions of your image are below. Enter one of those predictions into the appropriate search bar. Our application will then search through a database (linked in the home page) for the name entered and report its status. 
               </Text>
             </View>
             <View style={styles.imageContainer1}>
