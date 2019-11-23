@@ -23,8 +23,8 @@ export default class HomeScreen extends Component{
           <Image
             source={
               __DEV__
-                ? require('../assets/images/seaTurtle.jpg')
-                : require('../assets/images/seaTurtle.jpg')
+                ? require('../assets/images/otter.jpg')
+                : require('../assets/images/otter.jpg')
             }
             style={styles.welcomeImage}
           />
