@@ -38,14 +38,17 @@ export default class TutorialScreenNew extends Component {
   // };
 
   static navigationOptions = ({ navigation }) => {
-    return {
-      title: navigation.getParam('otherParam', 'Upload Image'),
-      headerStyle: {
-        backgroundColor: '#003308',
-      },
-      headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
+    const {params} = navigation.state;
+    return params;
+    // return {
+    //   title: navigation.getParam('otherParam', 'Upload Image'),
+    //   headerStyle: {
+    //     backgroundColor: '#003308',
+    //   },
+    //   headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
+      
  
-    }
+    // }
      };
 
   state = {
@@ -57,11 +60,18 @@ export default class TutorialScreenNew extends Component {
     scientific: null,
     stat: null,
     isTfReady: false,
+    isPhase2Hit: false,
   }
 
   // FROM IMAGE UPLOAD AND CLASSIFY CLASS
 
   async componentDidMount() {
+
+    this.props.navigation.setParams({
+      title: "Upload Image", 
+      headerStyle: {backgroundColor: '#003308'},
+      headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
+    });
     // waits for tensorflowjs to be loaded and ready
     await tf.ready()
     this.setState({
@@ -74,6 +84,20 @@ export default class TutorialScreenNew extends Component {
     //this.model = await tf.loadLayersModel(model_url, {credentials: 'include'})
     this.setState({ isModelReady: true })
     this.getPermissionAsync()
+
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.predictions != prevState.prediction && this.state.isStatusReady == prevState.isStatusReady && this.state.isPhase2Hit == false) {
+      console.log("hi");
+      this.props.navigation.setParams({title: 'Enter Name'});
+      this.state.isPhase2Hit = true;
+    }
+    // console.log("phase 3 state: ", (this.state.isStatusReady), "Phase 3 prev state: ", (prevState.isStatusReady));
+    // if (this.state.predictions == prevState.predictions && this.state.isStatusReady != prevState.isStatusReady && this.state.isPhase3Hit == false) {
+    //   this.props.navigation.setParams({otherParam: 'Results!'});
+    //   this.state.isPhase3Hit = true;
+    // }
   }
 
     // need to get permission to access the camera roll for ios
@@ -180,6 +204,7 @@ export default class TutorialScreenNew extends Component {
         // save it so we can grab it later
         this.setState({ stat: status.status });
         this.setState({ isStatusReady: true });
+        this.props.navigation.setParams({title: 'Results!'});
       })
   }
   handleRender = () => {
@@ -191,6 +216,8 @@ export default class TutorialScreenNew extends Component {
     this.setState({ scientific: null });
     this.setState({ stat: null });
     this.setState({ isTfReady: false });
+    this.setState({isPhase2Hit: false});
+    this.props.navigation.setParams({title: 'Upload Image'});
   }
 
   
