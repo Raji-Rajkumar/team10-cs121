@@ -30,26 +30,10 @@ import axios from 'axios';
 
 export default class TutorialScreenNew extends Component {
 
-  // static navigationOptions = ({ navigation }) => {
-  //   const {state} = navigation;
-  //   return {
-  //     title: `${state.params.title}`,
-  //   };
-  // };
-
   static navigationOptions = ({ navigation }) => {
     const {params} = navigation.state;
     return params;
-    // return {
-    //   title: navigation.getParam('otherParam', 'Upload Image'),
-    //   headerStyle: {
-    //     backgroundColor: '#003308',
-    //   },
-    //   headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
-      
- 
-    // }
-     };
+  };
 
   state = {
     isModelReady: false,
@@ -216,10 +200,6 @@ export default class TutorialScreenNew extends Component {
     this.props.navigation.setParams({title: 'Upload Image'});
   }
 
-  
-
-  
-
   render() {
       // by default, have the tutorial text and the upload image box
     let {  isTfReady, isModelReady, predictions, image, common, scientific, isStatusReady, stat  } = this.state;
@@ -232,8 +212,7 @@ export default class TutorialScreenNew extends Component {
     else {
         message = "";
     }
-    
-    return(
+    return (
       <View style={{flex:1}}>
       <ScrollView
           style={styles.container}
@@ -248,7 +227,7 @@ export default class TutorialScreenNew extends Component {
                 Our image classifer (MobileNet) will classify the image as whatever animal it is! 
                 Please note that this app is meant for animals only; upload appropriate images, and no images of humans. The classifier will report its top three predictions.
                 Happy searching!
-        
+
 
               </Text>
             </View>
@@ -332,9 +311,7 @@ export default class TutorialScreenNew extends Component {
               onPress={isModelReady ? this.pickAndClassifyImage : undefined}>
               {image &&
                 <Image source={ image } style={styles.imageContainer} />}
-            </TouchableOpacity>
-
-            
+            </TouchableOpacity> 
           </View>
           <View><Text style = {styles.getStartedText}> {message} </Text></View>
             <TouchableOpacity
@@ -353,12 +330,6 @@ export default class TutorialScreenNew extends Component {
   }
   
 }
-
-// export default TutorialScreenNew;
-
-
-
-
 
 const styles = StyleSheet.create({
   container: {
