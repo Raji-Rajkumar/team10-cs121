@@ -198,21 +198,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(2,74,16,1)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
   getStartedText: {
     fontFamily: 'Menlo',
     fontSize: 17,
-    color: 'rgba(252,183,140, 1)',
+    color: '#FCB582',
     lineHeight: 24,
     textAlign: 'center',
   },
@@ -236,15 +225,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FCB582',
     paddingVertical: 20,
   },
-  tabBarInfoText: {
-    fontFamily: 'Menlo',
-    fontSize: 17,
-    color: 'rgba(252,183,140, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
   helpContainer: {
     marginTop: 15,
     alignItems: 'center',
@@ -255,7 +235,7 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontFamily: 'Menlo',
     fontSize: 14,
-    color: '#FCB582',
+    color: '#c0e4fd',
   },
   rowContainer: {
     alignItems: 'center',
