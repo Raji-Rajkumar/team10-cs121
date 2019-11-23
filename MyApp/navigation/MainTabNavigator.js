@@ -6,7 +6,6 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import TutorialScreenNew from '../screens/TutorialScreenNew';
 import DeveloperScreen from '../screens/DeveloperScreen';
-import ResultsScreen from '../screens/ResultsScreen';
 
 import { MenloText } from '../components/StyledText';
 
@@ -56,7 +55,7 @@ const TutorialStack = createStackNavigator(
 );
 
 TutorialStack.navigationOptions = {
-  tabBarLabel: 'Tutorial',
+  tabBarLabel: 'Find Status',
   tabBarOptions: {
   labelStyle: {
     fontSize: 12,

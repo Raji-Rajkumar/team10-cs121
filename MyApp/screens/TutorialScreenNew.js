@@ -30,6 +30,24 @@ import axios from 'axios';
 
 export default class TutorialScreenNew extends Component {
 
+  // static navigationOptions = ({ navigation }) => {
+  //   const {state} = navigation;
+  //   return {
+  //     title: `${state.params.title}`,
+  //   };
+  // };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam('otherParam', 'Upload Image'),
+      headerStyle: {
+        backgroundColor: '#003308',
+      },
+      headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
+ 
+    }
+     };
+
   state = {
     isModelReady: false,
     isStatusReady: false,
@@ -175,6 +193,10 @@ export default class TutorialScreenNew extends Component {
     this.setState({ isTfReady: false });
   }
 
+  
+
+  
+
   render() {
       // by default, have the tutorial text and the upload image box
     let {  isTfReady, isModelReady, predictions, image, common, scientific, isStatusReady, stat  } = this.state;
@@ -187,6 +209,7 @@ export default class TutorialScreenNew extends Component {
     else {
         message = "";
     }
+    
     return(
       <View style={{flex:1}}>
       <ScrollView
@@ -233,6 +256,7 @@ export default class TutorialScreenNew extends Component {
         )}
         {predictions && !isStatusReady && (
           <View style={styles.container}>
+            
             <View style={styles.getStartedContainer}>
               <Text style={styles.getStartedText}>
                 The top three predictions of your image are below. Enter one of those
@@ -309,13 +333,7 @@ export default class TutorialScreenNew extends Component {
 
 // export default TutorialScreenNew;
 
-TutorialScreenNew.navigationOptions = {
-  title: 'Tutorial',
-  headerStyle: {
-      backgroundColor: '#003308',
-    },
-  headerTitleStyle: {fontFamily: 'Menlo', fontSize: 25, color: 'rgba(252, 183, 140, 1)'},
-};
+
 
 
 
