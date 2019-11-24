@@ -12,17 +12,12 @@ import {
 } from 'react-native';
 
 import { MenloText } from '../components/StyledText';
-import { wrap } from 'module';
 
 export default class DeveloperScreen extends Component{
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
   // return <ExpoConfigView />; //this is how you get info about the app
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{flex:1}}>
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
@@ -37,8 +32,9 @@ export default class DeveloperScreen extends Component{
             }
             style={styles.welcomeImage}
           />
+         
           <Text style={styles.textHead}>
-              Naiti
+              Naiti Bhatt
             </Text>
           <Text style={styles.text}>
             Name: {"\n"}
@@ -52,19 +48,18 @@ export default class DeveloperScreen extends Component{
             <Image
             source={
               __DEV__
-                ? require('../assets/images/raji.jpeg')
-                : require('../assets/images/raji.jpeg')
+                ? require('../assets/images/raji.jpg')
+                : require('../assets/images/raji.jpg')
             }
             style={styles.welcomeImage}
           />
           <Text style={styles.textHead}>
-              Raji 
+              Raji Rajkumar
           </Text>
           <Text style={styles.text}>
-            Name: {"\n"}
-            School: {"\n"}
-            Class: {"\n"}
-            Inspiration: {"\n"}
+            Raji is a junior at Scripps College. She created 'Endangered?' because it
+            was a perfect way to explore her interests in machine learning and web development 
+            while still contributing to a project with impact. 
           </Text>
           </View>
 
@@ -72,19 +67,19 @@ export default class DeveloperScreen extends Component{
             <Image
             source={
               __DEV__
-                ? require('../assets/images/otter.jpg')
-                : require('../assets/images/otter.jpg')
+                ? require('../assets/images/sarah.jpeg')
+                : require('../assets/images/sarah.jpeg')
             }
             style={styles.welcomeImage}
           />
           <Text style={styles.textHead}>
-              Sarah
-            </Text>
+              Sarah Grade
+          </Text>
           <Text style={styles.text}>
-            Name: {"\n"}
-            School: {"\n"}
-            Class: {"\n"}
-            Inspiration: {"\n"}
+            Sarah is a Harvey Mudd junior. She is passionate about 'Endangered?' because  
+            of the opportunities its development provided for learning new libraries and debugging
+            tools. She was inspired by her previous environmental science classes and interest
+            in machine learning.
           </Text>
           </View>
         </View>
@@ -103,19 +98,22 @@ DeveloperScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
-    paddingBottom:30,
+    flexGrow: 1,
+    paddingTop: 20,
+    paddingBottom: 10,
     backgroundColor: '#003308',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
+    paddingBottom: 30,
+    backgroundColor: '#003308',
   },
   rowContainer: {
     alignItems: 'center',
     justifyContent: 'space-around',
-    flexWrap: wrap,
-    flex: 1,
+    // flex: 2,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     
   },
   welcomeContainer: {
@@ -123,19 +121,25 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
     backgroundColor: '#FCB582',
+    height: 600,
+    width: 300,
+    
   },
   welcomeImage: {
-    width: 200,
-    height: 290,
+    width: 210,
+    height: 300,
     resizeMode: 'contain',
     marginTop: 2,
   },
   text: {
     fontFamily: 'Menlo',
-    fontSize: 17,
+    fontSize: 14,
     color: '#003308',
     lineHeight: 24,
     textAlign: 'center',
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   textHead: {
     fontFamily: 'Menlo',
