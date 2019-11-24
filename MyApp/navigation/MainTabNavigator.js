@@ -87,7 +87,7 @@ const DeveloperStack = createStackNavigator(
 );
 
 DeveloperStack.navigationOptions = {
-  tabBarLabel: 'Developers',
+  tabBarLabel: 'About Us',
   tabBarOptions: {
   labelStyle: {
     fontSize: 12,

@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import { MenloText } from '../components/StyledText';
+import { wrap } from 'module';
 
 export default class DeveloperScreen extends Component{
   /**
@@ -28,9 +29,6 @@ export default class DeveloperScreen extends Component{
         
         <View style={styles.rowContainer}>
           <View style={styles.welcomeContainer}>
-            <Text style={styles.getStartedText}>
-              Raji
-            </Text>
             <Image
             source={
               __DEV__
@@ -39,7 +37,10 @@ export default class DeveloperScreen extends Component{
             }
             style={styles.welcomeImage}
           />
-          <Text style={styles.getStartedText}>
+          <Text style={styles.textHead}>
+              Naiti
+            </Text>
+          <Text style={styles.text}>
             Name: {"\n"}
             School: {"\n"}
             Class: {"\n"}
@@ -48,9 +49,6 @@ export default class DeveloperScreen extends Component{
           </View>
 
           <View style={styles.welcomeContainer}>
-            <Text style={styles.getStartedText}>
-              Raji
-            </Text>
             <Image
             source={
               __DEV__
@@ -59,7 +57,10 @@ export default class DeveloperScreen extends Component{
             }
             style={styles.welcomeImage}
           />
-          <Text style={styles.getStartedText}>
+          <Text style={styles.textHead}>
+              Raji 
+          </Text>
+          <Text style={styles.text}>
             Name: {"\n"}
             School: {"\n"}
             Class: {"\n"}
@@ -68,9 +69,6 @@ export default class DeveloperScreen extends Component{
           </View>
 
           <View style={styles.welcomeContainer}>
-            <Text style={styles.getStartedText}>
-              Raji
-            </Text>
             <Image
             source={
               __DEV__
@@ -79,7 +77,10 @@ export default class DeveloperScreen extends Component{
             }
             style={styles.welcomeImage}
           />
-          <Text style={styles.getStartedText}>
+          <Text style={styles.textHead}>
+              Sarah
+            </Text>
+          <Text style={styles.text}>
             Name: {"\n"}
             School: {"\n"}
             Class: {"\n"}
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
   rowContainer: {
     alignItems: 'center',
     justifyContent: 'space-around',
+    flexWrap: wrap,
     flex: 1,
     flexDirection: 'row',
     
@@ -120,18 +122,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
+    backgroundColor: '#FCB582',
   },
   welcomeImage: {
     width: 200,
-    height: 400,
+    height: 290,
     resizeMode: 'contain',
     marginTop: 2,
   },
-  getStartedText: {
+  text: {
     fontFamily: 'Menlo',
     fontSize: 17,
-    color: '#FCB582',
+    color: '#003308',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  textHead: {
+    fontFamily: 'Menlo',
+    fontSize: 24,
+    color: '#003308',
+    lineHeight: 24,
+    textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 10,
   },
 });
