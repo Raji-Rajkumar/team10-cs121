@@ -35,6 +35,7 @@ export default class TutorialScreenNew extends Component {
     return params;
   };
 
+  
   state = {
     isModelReady: false,
     isStatusReady: false,
@@ -73,7 +74,6 @@ export default class TutorialScreenNew extends Component {
     
   componentDidUpdate(prevProps, prevState) {
     if (this.state.predictions != prevState.prediction && this.state.isStatusReady == prevState.isStatusReady && this.state.isPhase2Hit == false) {
-      console.log("hi");
       this.props.navigation.setParams({title: 'Enter Name'});
       this.state.isPhase2Hit = true;
     }
@@ -159,12 +159,44 @@ export default class TutorialScreenNew extends Component {
 
   // puts the prediction in a nice pretty form to list and show users
   renderPrediction = prediction => {
+    console.log('hit');
+    console.log(prediction);
+    var commonStr = '';
+    var sciStr = '';
+    var names = prediction.className.split(',');
+    var probStr = prediction.probability.toFixed(3);
+    commonStr = names[0];
+    var sciName = '';
+    if (names.length == 2) {
+        sciStr = names[1];
+    }
+    if (sciStr != '') {
+        sciName = ' Scientific Name:' + sciStr + ',';
+    }
     return (
-      <Text key={prediction.className} style={styles.predictionText}>
-        {prediction.className}
+      <View style={styles.predictionItem}>
+      <Text style={styles.predictionText}>
+        Common Name: {commonStr},{sciName} Confidence: {probStr}
       </Text>
+      <TouchableOpacity
+        style = {styles.inputButton}
+        onPress = {
+          () => this.submit(commonStr, sciStr)
+        }>
+        <Text style = {styles.inputButtonText}> Get Status </Text>
+      </TouchableOpacity>
+      </View>
     )
   }
+    /*
+      <TouchableOpacity
+        style = {styles.inputButton}
+        onPress = {
+          () => this.submit(commonStr, sciStr)
+        }>
+        <Text style = {styles.inputButtonText}> Get Status </Text>
+      </TouchableOpacity>
+      */
 
   // BELOW IS FROM INPUTS.JS
 
@@ -276,29 +308,8 @@ export default class TutorialScreenNew extends Component {
 
               <View style={styles.predictionWrapper}>
                 {isModelReady &&
-                  predictions.map(p => this.renderPrediction(p))}
+                    predictions.map(p => this.renderPrediction(p))}
             </View>
-          </View>
-          <View style = {styles.inputContainer}>
-			      <TextInput style = {styles.input}
-              underlineColorAndroid = "transparent"
-              placeholder = "  Common Name"
-              placeholderTextColor = '#003308'
-              autoCapitalize = "none"
-              onChangeText = {this.handleCommon}/>
-            <TextInput style = {styles.input}
-              underlineColorAndroid = "transparent"
-              placeholder = "  Scientific Name"
-              placeholderTextColor = '#003308'
-              autoCapitalize = "none"
-              onChangeText = {this.handleScientific}/>
-            <TouchableOpacity
-              style = {styles.inputButton}
-              onPress = {
-                () => this.submit(this.state.common, this.state.scientific)
-              }>
-              <Text style = {styles.inputButtonText}> Submit </Text>
-            </TouchableOpacity>
           </View>
         </View>
         )}
@@ -330,7 +341,29 @@ export default class TutorialScreenNew extends Component {
   }
   
 }
-
+/*
+          <View style = {styles.inputContainer}>
+			      <TextInput style = {styles.input}
+              underlineColorAndroid = "transparent"
+              placeholder = "  Common Name"
+              placeholderTextColor = '#003308'
+              autoCapitalize = "none"
+              onChangeText = {this.handleCommon}/>
+            <TextInput style = {styles.input}
+              underlineColorAndroid = "transparent"
+              placeholder = "  Scientific Name"
+              placeholderTextColor = '#003308'
+              autoCapitalize = "none"
+              onChangeText = {this.handleScientific}/>
+            <TouchableOpacity
+              style = {styles.inputButton}
+              onPress = {
+                () => this.submit(this.state.common, this.state.scientific)
+              }>
+              <Text style = {styles.inputButtonText}> Submit </Text>
+            </TouchableOpacity>
+          </View>
+*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -418,11 +451,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(252,183,140, 1)',
     padding: 10,
     margin: 15,
-    height: 40
+    height: 40,
+    width: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
   },
   inputButtonText:{
     fontFamily: 'Menlo',
     color: '#003308',
+    textAlign: 'center',
   },
   reclassifyButton:{
     backgroundColor: 'rgba(252, 183, 140, 1)',
@@ -443,5 +481,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: 'rgba(252,183,140, 1)',
   },
+  predictionItem:{
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
 

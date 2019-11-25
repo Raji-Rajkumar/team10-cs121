@@ -27,8 +27,8 @@ export default class DeveloperScreen extends Component{
             <Image
             source={
               __DEV__
-                ? require('../assets/images/otter.jpg')
-                : require('../assets/images/otter.jpg')
+                ? require('../assets/images/naiti.jpg')
+                : require('../assets/images/naiti.jpg')
             }
             style={styles.welcomeImage}
           />
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   rowContainer: {
     alignItems: 'center',
     justifyContent: 'space-around',
-    // flex: 2,
     flexDirection: 'row',
     flexWrap: 'wrap',
     
@@ -121,8 +120,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
     backgroundColor: '#FCB582',
-    height: 600,
-    width: 300,
+    height: 650,
+    width: 250,
     
   },
   welcomeImage: {

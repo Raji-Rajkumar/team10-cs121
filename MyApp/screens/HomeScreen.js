@@ -15,7 +15,7 @@ import { MenloText } from '../components/StyledText';
 export default class HomeScreen extends Component{
   render() {
   return (
-    <View style={styles.container}>
+    <View style={{flex: 1}}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -105,7 +105,7 @@ export default class HomeScreen extends Component{
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.bottomText}>
-          To get started with searching for your animal's conservation status, head to the tutorial page!
+          To get started with searching for your animal's conservation status, head to Find Status!
         </Text>
 
       </View>
@@ -159,8 +159,8 @@ function handleHelpPress() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
-    paddingBottom:30,
+    paddingTop: 5,
+    paddingBottom: 10,
     backgroundColor: '#003308',
   },
   developmentModeText: {
@@ -242,8 +242,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
     marginBottom: 20,
-    flex: 1,
     flexDirection: 'row',
-    
+    flexWrap: 'wrap', 
   }
 });
