@@ -14,7 +14,7 @@ import {
 import { MenloText } from '../components/StyledText';
 
 export default class DeveloperScreen extends Component{
-  // return <ExpoConfigView />; //this is how you get info about the app
+ 
   render() {
     return (
       <View style={{flex:1}}>
@@ -37,10 +37,9 @@ export default class DeveloperScreen extends Component{
               Naiti Bhatt
             </Text>
           <Text style={styles.text}>
-            Name: {"\n"}
-            School: {"\n"}
-            Class: {"\n"}
-            Inspiration: {"\n"}
+            Naiti is a Scripps College junior. She is excited about 'Endangered?' because it helped her learn new ways of 
+            developing and refined her knowledge of using machine learning in a practical scenario. 
+            She cannot wait to try it out by uploading some pictures and seeing what happens after her next hike!
           </Text>
           </View>
 
