@@ -218,7 +218,7 @@ export default class TutorialScreenNew extends Component {
   submit = (common, scientific) => {
     // get what the user entered from the URL
     //http://127.0.0.1:5000/name
-    //https://r4infotech.com/endangered
+    //https://r4infotech.com/cs121
     console.log("common: " + common + " scientific: " + scientific);
 
     axios.get('http://127.0.0.1:5000/name?common=' + common + '&scientific=' + scientific)
@@ -227,7 +227,10 @@ export default class TutorialScreenNew extends Component {
         // save it so we can grab it later
         this.setState({ stat: status.status });
         if (this.state.stat.includes("Did you mean")) {
-            this.setState({ hasSugg: true });
+          this.setState({ hasSugg: true });
+        }
+        else if(this.state.hasSugg == true) {
+          this.setState({ hasSugg: false });
         }
         this.setState({ isStatusReady: true });
         this.props.navigation.setParams({title: 'Results!'});
@@ -339,9 +342,10 @@ export default class TutorialScreenNew extends Component {
                 <Image source={ image } style={styles.imageContainer} />}
             </TouchableOpacity> 
           </View>
-          <View><Text style = {styles.getStartedText}> {message} </Text></View>
+          <View><Text style = {styles.predictionsText}> {message} </Text></View>
           {hasSugg && (
               <View style = {styles.inputContainer}>
+                <Text style = {styles.suggestionsText}>Enter the name of one of the animals above into the search bar</Text>
                 <TextInput style = {styles.input}
                   underlineColorAndroid = "transparent"
                   placeholder = "  Common Name"
@@ -349,21 +353,25 @@ export default class TutorialScreenNew extends Component {
                   autoCapitalize = "none"
                   onChangeText = {this.handleCommon}/>
                 <TouchableOpacity
-                  style = {styles.inputButton}
+                  style = {styles.submitButton}
                   onPress = {
                     () => this.submit(this.state.common, this.state.scientific)
                   }>
-                  <Text style = {styles.inputButtonText}> Submit </Text>
+                  <Text style = {styles.submitButtonText}> Submit </Text>
                 </TouchableOpacity>
               </View>
           )}
+          {!hasSugg && (
             <TouchableOpacity
-                style = {styles.reclassifyButton}
-                onPress = {
-                    () => this.handleRender()
-                }>
-                <Text style = {styles.inputButtonText}> Upload Another Image </Text>
+              style = {styles.reclassifyButton}
+              onPress = {
+                  () => this.handleRender()
+              }>
+              <Text style = {styles.inputButtonText}> Upload Another Image </Text>
             </TouchableOpacity>
+
+          )}
+            
           </View>
         )} 
         
@@ -421,6 +429,16 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     backgroundColor: '#003308',
   },
+  submitButton:{
+    backgroundColor: 'rgba(252,183,140, 1)',
+    padding: 10,
+    margin: 15,
+    height: 40,
+    // width: 200,
+    justifyContent: 'center',
+    //alignItems: 'center',
+    flex: 1,
+  },
   submitButtonText:{
       fontFamily: 'Menlo',
       color: '#003308',
@@ -434,6 +452,24 @@ const styles = StyleSheet.create({
   getStartedText: {
     fontFamily: 'Menlo',
     fontSize: 17,
+    color: 'rgba(252, 183, 140, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
+
+  predictionsText: {
+    fontFamily: 'Menlo',
+    fontSize: 17,
+    color: 'rgba(252, 183, 140, 1)',
+    lineHeight: 26,
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  
+  suggestionsText: {
+    fontFamily: 'Menlo',
+    fontSize: 17,
+    fontWeight: 'bold',
     color: 'rgba(252, 183, 140, 1)',
     lineHeight: 24,
     textAlign: 'center',
