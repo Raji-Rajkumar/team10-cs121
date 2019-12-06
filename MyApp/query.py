@@ -40,9 +40,25 @@ def findStatus(commonName, scientificName):
     if commonName != 'null':
         if commonName not in data["Common Name"].values:
             # find similar entries in the dataframe containing the inputted commonName
-            possibilities = data.loc[data["Common Name"].str.contains(commonName), ["Common Name"]]
-            # convert those into a string list of possible entries in the dataframe
-            listP = possibilities["Common Name"].values.tolist()
+            splitCN = commonName
+            splitCN = splitCN.split()
+            outerList = []
+            for word in splitCN:
+                possibilities = data.loc[data["Common Name"].str.contains(word), ["Common Name"]]
+                innerList = possibilities.values.tolist()
+                #print("innerList: ", innerList)
+                for w in innerList:
+                    outerList.append(w[0])
+          
+            print("outerList: ", outerList)
+            dictP = {}
+            #print(outerList)
+            for i in outerList:
+                dictP[i] = 1
+	    # convert those into a string list of possible entries in the dataframe
+            listP = []
+            for key in dictP.keys():
+                listP.append(key)
             strP = ", ".join(listP)
             out = ""
             if len(listP) == 0:

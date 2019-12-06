@@ -46,6 +46,7 @@ export default class TutorialScreenNew extends Component {
     stat: null,
     isTfReady: false,
     isPhase2Hit: false,
+    hasSugg: false,
   }
 
   // FROM IMAGE UPLOAD AND CLASSIFY CLASS
@@ -74,7 +75,7 @@ export default class TutorialScreenNew extends Component {
     
   componentDidUpdate(prevProps, prevState) {
     if (this.state.predictions != prevState.prediction && this.state.isStatusReady == prevState.isStatusReady && this.state.isPhase2Hit == false) {
-      this.props.navigation.setParams({title: 'Enter Name'});
+      this.props.navigation.setParams({title: 'Predictions'});
       this.state.isPhase2Hit = true;
     }
   }
@@ -197,6 +198,14 @@ export default class TutorialScreenNew extends Component {
         <Text style = {styles.inputButtonText}> Get Status </Text>
       </TouchableOpacity>
       */
+        // put the statuses here in an if statement once this button is pressed
+    /*
+      {predictions && isStatusReady && (
+          <View><Text style = {styles.getStartedText}> {message} </Text></View>
+      )}
+    */
+        // will have to somehow do this for each place there? also how do we know which name?
+    
 
   // BELOW IS FROM INPUTS.JS
 
@@ -217,6 +226,9 @@ export default class TutorialScreenNew extends Component {
         const status = res.data;
         // save it so we can grab it later
         this.setState({ stat: status.status });
+        if (this.state.stat.includes("Did you mean")) {
+            this.setState({ hasSugg: true });
+        }
         this.setState({ isStatusReady: true });
         this.props.navigation.setParams({title: 'Results!'});
       })
@@ -230,13 +242,14 @@ export default class TutorialScreenNew extends Component {
     this.setState({ scientific: null });
     this.setState({ stat: null });
     this.setState({ isTfReady: false });
-    this.setState({isPhase2Hit: false});
+    this.setState({ isPhase2Hit: false });
+    this.setState({ hasSugg: false });
     this.props.navigation.setParams({title: 'Upload Image'});
   }
 
   render() {
       // by default, have the tutorial text and the upload image box
-    let {  isTfReady, isModelReady, predictions, image, common, scientific, isStatusReady, stat  } = this.state;
+    let {  isTfReady, isModelReady, predictions, image, common, scientific, isStatusReady, stat, hasSugg } = this.state;
     // set the message
     let message;
     if(isStatusReady) {
@@ -327,6 +340,23 @@ export default class TutorialScreenNew extends Component {
             </TouchableOpacity> 
           </View>
           <View><Text style = {styles.getStartedText}> {message} </Text></View>
+          {hasSugg && (
+              <View style = {styles.inputContainer}>
+                <TextInput style = {styles.input}
+                  underlineColorAndroid = "transparent"
+                  placeholder = "  Common Name"
+                  placeholderTextColor = '#003308'
+                  autoCapitalize = "none"
+                  onChangeText = {this.handleCommon}/>
+                <TouchableOpacity
+                  style = {styles.inputButton}
+                  onPress = {
+                    () => this.submit(this.state.common, this.state.scientific)
+                  }>
+                  <Text style = {styles.inputButtonText}> Submit </Text>
+                </TouchableOpacity>
+              </View>
+          )}
             <TouchableOpacity
                 style = {styles.reclassifyButton}
                 onPress = {
@@ -366,6 +396,12 @@ export default class TutorialScreenNew extends Component {
             </TouchableOpacity>
           </View>
 */
+            // replace get status button with the result
+            // possibly in the renderPrediction function?
+            // or move the get status buttons to outside the renderPrediction function?
+            // no that won't work because we can't separate them I don't think
+        // delete everything below except for the upload another image button and put it in the 
+        // above if statement
 const styles = StyleSheet.create({
   container: {
     flex: 1,
