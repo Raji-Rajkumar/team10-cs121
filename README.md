@@ -13,3 +13,5 @@ yarn add @react-native-community/async-storage @tensorflow/tfjs @tensorflow/tfjs
 
 After the installations, run "python query.py" and then run "yarn web" to spin up the web application.
 The web app is built and run on expo, due to its use of React Native as the main library.
+
+Note: The file name TutorialScreenNew.js is misleading; it is no longer a tutorial screen. It contains the entire functionality of the screens.
