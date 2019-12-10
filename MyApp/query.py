@@ -42,23 +42,24 @@ def findStatus(commonName, scientificName):
             # find similar entries in the dataframe containing the inputted commonName
             splitCN = commonName
             splitCN = splitCN.split()
+            # search for animals in the database sharing any word in the common name
+            # outerList is a list of possibilities
             outerList = []
             for word in splitCN:
                 possibilities = data.loc[data["Common Name"].str.contains(word), ["Common Name"]]
                 innerList = possibilities.values.tolist()
-                #print("innerList: ", innerList)
                 for w in innerList:
                     outerList.append(w[0])
           
-            print("outerList: ", outerList)
+            # put possibilities in a dictionary to get rid of duplicates
             dictP = {}
-            #print(outerList)
             for i in outerList:
                 dictP[i] = 1
 	    # convert those into a string list of possible entries in the dataframe
             listP = []
             for key in dictP.keys():
                 listP.append(key)
+            # separate names by commas
             strP = ", ".join(listP)
             out = ""
             if len(listP) == 0:
