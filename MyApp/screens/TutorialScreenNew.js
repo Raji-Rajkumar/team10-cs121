@@ -233,7 +233,7 @@ export default class TutorialScreenNew extends Component {
           this.setState({ hasSugg: false });
         }
         this.setState({ isStatusReady: true });
-        this.props.navigation.setParams({title: 'Results!'});
+        this.props.navigation.setParams({title: 'Results!' });
       })
   }
   handleRender = () => {
@@ -327,9 +327,9 @@ export default class TutorialScreenNew extends Component {
               <View style={styles.predictionWrapper}>
                 {isModelReady &&
                     predictions.map(p => this.renderPrediction(p))}
+              </View>
             </View>
           </View>
-        </View>
         )}
         {predictions && isStatusReady && (
           <View style={styles.container}>
